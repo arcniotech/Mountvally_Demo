@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 450">
+  <defs>
+    <path id="mv" d="M120,272 A142,142 0 0,0 380,272"/>
+  </defs>
+
+  <!-- ============ LEFT LAUREL BRANCH ============ -->
+  <g fill="#00AEAE">
+    <!-- Stem -->
+    <path d="M84,332 Q68,272 57,192 Q51,156 57,125" stroke="#00AEAE" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <!-- Leaf pairs bottom to top -->
+    <ellipse cx="72" cy="328" rx="19" ry="7" transform="rotate(-24,72,328)"/>
+    <ellipse cx="98" cy="320" rx="19" ry="7" transform="rotate(30,98,320)"/>
+    <ellipse cx="61" cy="297" rx="19" ry="7" transform="rotate(-33,61,297)"/>
+    <ellipse cx="88" cy="289" rx="19" ry="7" transform="rotate(39,88,289)"/>
+    <ellipse cx="53" cy="265" rx="18" ry="7" transform="rotate(-41,53,265)"/>
+    <ellipse cx="80" cy="257" rx="18" ry="7" transform="rotate(47,80,257)"/>
+    <ellipse cx="47" cy="232" rx="17" ry="7" transform="rotate(-49,47,232)"/>
+    <ellipse cx="74" cy="224" rx="17" ry="7" transform="rotate(55,74,224)"/>
+    <ellipse cx="46" cy="199" rx="17" ry="7" transform="rotate(-56,46,199)"/>
+    <ellipse cx="71" cy="190" rx="17" ry="7" transform="rotate(61,71,190)"/>
+    <ellipse cx="49" cy="167" rx="16" ry="6" transform="rotate(-61,49,167)"/>
+    <ellipse cx="72" cy="158" rx="16" ry="6" transform="rotate(66,72,158)"/>
+    <ellipse cx="55" cy="137" rx="15" ry="6" transform="rotate(-65,55,137)"/>
+    <ellipse cx="75" cy="128" rx="15" ry="6" transform="rotate(69,75,128)"/>
+    <!-- Bottom ribbon knot -->
+    <path d="M79,340 Q88,353 77,362 Q92,355 98,365" stroke="#00AEAE" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <ellipse cx="87" cy="350" rx="10" ry="5" transform="rotate(-15,87,350)"/>
+  </g>
+
+  <!-- ============ RIGHT LAUREL BRANCH ============ -->
+  <g fill="#00AEAE">
+    <!-- Stem -->
+    <path d="M416,332 Q432,272 443,192 Q449,156 443,125" stroke="#00AEAE" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <!-- Leaf pairs bottom to top -->
+    <ellipse cx="428" cy="328" rx="19" ry="7" transform="rotate(24,428,328)"/>
+    <ellipse cx="402" cy="320" rx="19" ry="7" transform="rotate(-30,402,320)"/>
+    <ellipse cx="439" cy="297" rx="19" ry="7" transform="rotate(33,439,297)"/>
+    <ellipse cx="412" cy="289" rx="19" ry="7" transform="rotate(-39,412,289)"/>
+    <ellipse cx="447" cy="265" rx="18" ry="7" transform="rotate(41,447,265)"/>
+    <ellipse cx="420" cy="257" rx="18" ry="7" transform="rotate(-47,420,257)"/>
+    <ellipse cx="453" cy="232" rx="17" ry="7" transform="rotate(49,453,232)"/>
+    <ellipse cx="426" cy="224" rx="17" ry="7" transform="rotate(-55,426,224)"/>
+    <ellipse cx="454" cy="199" rx="17" ry="7" transform="rotate(56,454,199)"/>
+    <ellipse cx="429" cy="190" rx="17" ry="7" transform="rotate(-61,429,190)"/>
+    <ellipse cx="451" cy="167" rx="16" ry="6" transform="rotate(61,451,167)"/>
+    <ellipse cx="428" cy="158" rx="16" ry="6" transform="rotate(-66,428,158)"/>
+    <ellipse cx="445" cy="137" rx="15" ry="6" transform="rotate(65,445,137)"/>
+    <ellipse cx="425" cy="128" rx="15" ry="6" transform="rotate(-69,425,128)"/>
+    <!-- Bottom ribbon knot -->
+    <path d="M421,340 Q412,353 423,362 Q408,355 402,365" stroke="#00AEAE" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <ellipse cx="413" cy="350" rx="10" ry="5" transform="rotate(15,413,350)"/>
+  </g>
+
+  <!-- ============ OUTER SHIELD ============ -->
+  <path fill="#00AEAE" d="
+    M250,22
+    C292,22 358,46 414,73
+    Q430,82 430,102
+    L430,242
+    Q425,334 383,376
+    Q347,410 250,440
+    Q153,410 117,376
+    Q75,334 70,242
+    L70,102
+    Q70,82 86,73
+    C142,46 208,22 250,22 Z
+  "/>
+
+  <!-- ============ WHITE INNER RING ============ -->
+  <path fill="white" d="
+    M250,43
+    C289,43 351,65 403,91
+    Q417,99 417,117
+    L417,242
+    Q412,324 373,362
+    Q340,393 250,420
+    Q160,393 127,362
+    Q88,324 83,242
+    L83,117
+    Q83,99 97,91
+    C149,65 211,43 250,43 Z
+  "/>
+
+  <!-- ============ INNER TEAL CONTENT AREA ============ -->
+  <path fill="#00AEAE" d="
+    M250,66
+    C286,66 344,86 392,111
+    Q403,118 403,133
+    L403,242
+    Q398,315 362,349
+    Q332,375 250,400
+    Q168,375 138,349
+    Q102,315 97,242
+    L97,133
+    Q97,118 108,111
+    C156,86 214,66 250,66 Z
+  "/>
+
+  <!-- ============ "MOUNT VALLEY" TEXT (white, arced top) ============ -->
+  <text font-family="'Arial Black', Arial, sans-serif" font-weight="900" font-size="19" fill="white" letter-spacing="2">
+    <textPath href="#mv" startOffset="50%" text-anchor="middle">MOUNT VALLEY</textPath>
+  </text>
+
+  <!-- ============ THREE PERSON FIGURES ============ -->
+  <!-- Left person -->
+  <circle cx="208" cy="194" r="11" fill="white"/>
+  <line x1="208" y1="205" x2="208" y2="235" stroke="white" stroke-width="6" stroke-linecap="round"/>
+  <line x1="183" y1="218" x2="208" y2="210" stroke="white" stroke-width="4.5" stroke-linecap="round"/>
+  <line x1="208" y1="210" x2="224" y2="221" stroke="white" stroke-width="4.5" stroke-linecap="round"/>
+
+  <!-- Center person (tallest / foreground) -->
+  <circle cx="250" cy="187" r="14" fill="white"/>
+  <line x1="250" y1="201" x2="250" y2="238" stroke="white" stroke-width="7" stroke-linecap="round"/>
+  <line x1="219" y1="216" x2="250" y2="207" stroke="white" stroke-width="5.5" stroke-linecap="round"/>
+  <line x1="250" y1="207" x2="281" y2="216" stroke="white" stroke-width="5.5" stroke-linecap="round"/>
+
+  <!-- Right person -->
+  <circle cx="292" cy="194" r="11" fill="white"/>
+  <line x1="292" y1="205" x2="292" y2="235" stroke="white" stroke-width="6" stroke-linecap="round"/>
+  <line x1="276" y1="221" x2="292" y2="210" stroke="white" stroke-width="4.5" stroke-linecap="round"/>
+  <line x1="292" y1="210" x2="317" y2="218" stroke="white" stroke-width="4.5" stroke-linecap="round"/>
+
+  <!-- ============ OPEN BOOK ============ -->
+  <!-- Left page -->
+  <path fill="white" d="M198,250 Q198,241 207,240 L246,244 L246,276 L207,272 Q198,271 198,262 Z"/>
+  <!-- Right page -->
+  <path fill="white" d="M302,250 Q302,241 293,240 L254,244 L254,276 L293,272 Q302,271 302,262 Z"/>
+  <!-- Center spine -->
+  <rect x="246" y="240" width="8" height="36" fill="#006666" rx="2"/>
+  <!-- Page lines detail -->
+  <line x1="210" y1="252" x2="242" y2="253" stroke="#00AEAE" stroke-width="1.2" stroke-opacity="0.5"/>
+  <line x1="210" y1="258" x2="242" y2="258" stroke="#00AEAE" stroke-width="1.2" stroke-opacity="0.5"/>
+  <line x1="210" y1="264" x2="242" y2="264" stroke="#00AEAE" stroke-width="1.2" stroke-opacity="0.5"/>
+  <line x1="258" y1="252" x2="290" y2="253" stroke="#00AEAE" stroke-width="1.2" stroke-opacity="0.5"/>
+  <line x1="258" y1="258" x2="290" y2="258" stroke="#00AEAE" stroke-width="1.2" stroke-opacity="0.5"/>
+  <line x1="258" y1="264" x2="290" y2="264" stroke="#00AEAE" stroke-width="1.2" stroke-opacity="0.5"/>
+
+  <!-- ============ "PUBLIC SCHOOL" TEXT ============ -->
+  <text x="250" y="268" font-family="Arial, sans-serif" font-weight="bold" font-size="10.5" fill="#004444" text-anchor="middle" letter-spacing="0.5">PUBLIC SCHOOL</text>
+
+  <!-- ============ LEFT HAND ============ -->
+  <path fill="white" d="
+    M147,358
+    L153,333 Q159,316 170,305 Q178,295 186,291
+    L190,298
+    Q196,290 203,293 Q208,296 205,304
+    Q211,297 218,300 Q223,304 220,312
+    Q226,308 229,312 Q232,317 227,324
+    L213,339 Q196,352 171,359 Z
+  "/>
+
+  <!-- ============ RIGHT HAND ============ -->
+  <path fill="white" d="
+    M353,358
+    L347,333 Q341,316 330,305 Q322,295 314,291
+    L310,298
+    Q304,290 297,293 Q292,296 295,304
+    Q289,297 282,300 Q277,304 280,312
+    Q274,308 271,312 Q268,317 273,324
+    L287,339 Q304,352 329,359 Z
+  "/>
+</svg>

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Mount Valley</string>
+    <string name="title_activity_main">Mount Valley</string>
+    <string name="package_name">com.arcnio.schoolerp</string>
+    <string name="custom_url_scheme">com.arcnio.schoolerp</string>
+</resources>
