@@ -1,5 +1,4 @@
-
-name: Mountvalley
+name: Mountvalley iOS Build
 
 on:
   workflow_dispatch:
@@ -9,29 +8,48 @@ on:
 
 jobs:
   build-ios:
+    name: Build Mountvalley for iOS
     runs-on: macos-15
 
     steps:
+      # 1. Checkout GitHub Repository
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      # 2. Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 24
+          cache: npm
 
+      # 3. Install Dependencies
       - name: Install Dependencies
         run: npm ci
 
+      # 4. Build Website
       - name: Build Website
         run: npm run build
 
-      - name: Install iOS Platform
-        run: npx cap add ios
+      # 5. Verify iOS Platform
+      - name: Verify iOS Platform
+        run: |
+          if [ ! -d "ios" ]; then
+            echo "iOS platform not found. Creating it..."
+            npx cap add ios
+          else
+            echo "Existing iOS platform detected."
+          fi
 
+      # 6. Sync Capacitor
       - name: Sync Capacitor
         run: npx cap sync ios
 
+      # 7. Check Xcode
+      - name: Check Xcode
+        run: xcodebuild -version
+
+      # 8. Build iOS Simulator App
       - name: Build iOS Simulator App
         run: |
           xcodebuild \
@@ -43,8 +61,11 @@ jobs:
             CODE_SIGNING_ALLOWED=NO \
             build
 
+      # 9. Upload iOS Artifact
       - name: Upload iOS Build
         uses: actions/upload-artifact@v4
         with:
-          name: iOS-Simulator-Build
+          name: Mountvalley-iOS-Simulator
           path: build/Build/Products/Release-iphonesimulator/App.app
+          if-no-files-found: error
+          retention-days: 7
