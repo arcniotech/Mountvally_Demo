@@ -1,3 +1,4 @@
+```yaml
 name: Mount Valley iOS Build
 
 on:
@@ -30,6 +31,14 @@ jobs:
       - name: Install iOS Dependencies
         run: npm install @capacitor/ios
 
+      - name: Verify iOS Platform
+        run: |
+          if [ ! -d "ios/App/App.xcodeproj" ]; then
+            echo "ERROR: Existing iOS Xcode project not found."
+            exit 1
+          fi
+          echo "Existing iOS project detected."
+
       - name: Sync Capacitor
         run: npx cap sync ios
 
@@ -39,7 +48,7 @@ jobs:
       - name: Build iOS Simulator Application
         run: |
           xcodebuild \
-            -workspace ios/App/App.xcworkspace \
+            -project ios/App/App.xcodeproj \
             -scheme App \
             -sdk iphonesimulator \
             -configuration Release \
@@ -54,3 +63,4 @@ jobs:
           path: build/Build/Products/Release-iphonesimulator/App.app
           if-no-files-found: error
           retention-days: 7
+```
