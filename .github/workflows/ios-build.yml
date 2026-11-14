@@ -12,33 +12,43 @@ jobs:
     runs-on: macos-15
 
     steps:
-      # 1. Checkout GitHub Repository
+      # Checkout Repository
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # 2. Setup Node.js
+      # Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: npm
 
-      # 3. Install Dependencies
+      # Install Dependencies
       - name: Install Dependencies
         run: npm ci
 
-          - name: Build Website
+      # Build Website
+      - name: Build Website
         run: npm run build
 
-      - name: Install iOS Dependencies
-        run: npm install @capacitor/ios
+      # Verify Existing iOS Platform
+      - name: Verify iOS Platform
+        run: |
+          if [ ! -d "ios/App/App.xcworkspace" ]; then
+            echo "ERROR: Existing iOS Xcode workspace not found."
+            exit 1
+          fi
+          echo "Existing iOS project detected."
 
+      # Sync Capacitor
       - name: Sync Capacitor
         run: npx cap sync ios
 
+      # Check Xcode
       - name: Check Xcode
         run: xcodebuild -version
 
+      # Build iOS Simulator
       - name: Build iOS Simulator App
         run: |
           xcodebuild \
@@ -50,6 +60,7 @@ jobs:
             CODE_SIGNING_ALLOWED=NO \
             build
 
+      # Upload Artifact
       - name: Upload iOS Build
         uses: actions/upload-artifact@v4
         with:
@@ -57,4 +68,3 @@ jobs:
           path: build/Build/Products/Release-iphonesimulator/App.app
           if-no-files-found: error
           retention-days: 7
-          
