@@ -1,4 +1,4 @@
-```yaml
+
 name: Mount Valley iOS Build
 
 on:
@@ -63,4 +63,4 @@ jobs:
           path: build/Build/Products/Release-iphonesimulator/App.app
           if-no-files-found: error
           retention-days: 7
-```
+
