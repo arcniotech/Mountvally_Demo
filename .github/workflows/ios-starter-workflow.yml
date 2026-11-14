@@ -25,10 +25,11 @@ jobs:
       - name: Build Website
         run: npm run build
 
-      - name: Install iOS Platform
-        run: |
-          npm install @capacitor/ios
-          npx cap add ios
+    - name: Install iOS Dependencies
+  run: npm install @capacitor/ios
+
+- name: Sync Capacitor
+  run: npx cap sync ios
 
       - name: Sync Capacitor
         run: npx cap sync ios
