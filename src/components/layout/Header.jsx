@@ -5,8 +5,6 @@ import {
   Bell,
   Sun,
   Moon,
-  School,
-  ChevronDown,
   User,
   LogOut,
   Check,
@@ -23,11 +21,10 @@ import { Badge } from "../common/Badge";
 
 export function Header({ onOpenSearch, onOpenDrawer }) {
   const { user, logout, login } = useAuth();
-  const { schools, currentSchool, switchSchool } = useSchool();
+  const { currentSchool } = useSchool();
   const { darkMode, toggleTheme } = useTheme();
   const navigate = useNavigate();
 
-  const [showSchoolMenu, setShowSchoolMenu] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [showNotifMenu, setShowNotifMenu] = useState(false);
 
@@ -57,19 +54,6 @@ export function Header({ onOpenSearch, onOpenDrawer }) {
       unread: false,
     },
   ];
-
-  const handleSchoolSelect = (school) => {
-    switchSchool(school.id);
-    setShowSchoolMenu(false);
-    if (user?.role === "School Admin") {
-      login(
-        "School Admin",
-        { schoolCode: school.code, username: `${school.code}.admin` },
-        school,
-      );
-      navigate("/school/dashboard");
-    }
-  };
 
   const handleRoleQuickSwitch = (role) => {
     if (role === "Super Admin") {
@@ -117,16 +101,9 @@ export function Header({ onOpenSearch, onOpenDrawer }) {
             <Menu className="w-5 h-5" />
           </button>
 
-          {/* School Selector Dropdown (Interactive Multi-Tenant Switcher) */}
+          {/* Active school identity */}
           <div className="relative">
-            <button
-              onClick={() => {
-                setShowSchoolMenu(!showSchoolMenu);
-                setShowUserMenu(false);
-                setShowNotifMenu(false);
-              }}
-              className="flex items-center gap-2.5 px-3 py-1.5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-100 dark:border-slate-700/60 hover:bg-slate-100 transition-all text-left"
-            >
+            <div className="flex items-center gap-2.5 px-3 py-1.5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-100 dark:border-slate-700/60 text-left">
               <img
                 src="/mountvally-logo.png"
                 alt="Mount Valley Logo"
@@ -139,7 +116,6 @@ export function Header({ onOpenSearch, onOpenDrawer }) {
                       ? "Mount Valley Master"
                       : currentSchool?.name}
                   </span>
-                  <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
                 </div>
                 <p className="text-[10px] text-teal-600 dark:text-teal-400 font-medium">
                   {user?.role === "Super Admin"
@@ -151,51 +127,8 @@ export function Header({ onOpenSearch, onOpenDrawer }) {
                 <span className="text-xs font-bold text-slate-800 dark:text-white truncate max-w-[110px]">
                   {currentSchool?.name?.split(" ")[0]}
                 </span>
-                <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
               </div>
-            </button>
-
-            {/* School Switcher Dropdown */}
-            {showSchoolMenu && (
-              <div className="absolute top-full left-0 mt-2 w-72 bg-white dark:bg-slate-900 rounded-2xl shadow-soft-lg border border-slate-100 dark:border-slate-800 p-2 z-50 animate-fade-in">
-                <div className="px-3 py-2 border-b border-slate-100 dark:border-slate-800 text-[11px] font-bold text-slate-400 uppercase tracking-wider">
-                  Select School Portal
-                </div>
-                <div className="py-1 space-y-1 max-h-60 overflow-y-auto">
-                  {schools.map((school) => (
-                    <button
-                      key={school.id}
-                      type="button"
-                      onClick={() => handleSchoolSelect(school)}
-                      className={`w-full flex items-center justify-between p-2 rounded-xl text-left transition-colors ${
-                        currentSchool?.id === school.id
-                          ? "bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300"
-                          : "hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200"
-                      }`}
-                    >
-                      <div className="flex items-center gap-2.5 min-w-0">
-                        <div
-                          className={`w-7 h-7 rounded-lg ${school.logoColor} text-white flex items-center justify-center font-bold text-xs shrink-0`}
-                        >
-                          {school.logoLetter}
-                        </div>
-                        <div className="min-w-0">
-                          <p className="text-xs font-bold truncate">
-                            {school.name}
-                          </p>
-                          <p className="text-[10px] text-slate-400 truncate">
-                            {school.subdomain}
-                          </p>
-                        </div>
-                      </div>
-                      {currentSchool?.id === school.id && (
-                        <Check className="w-4 h-4 text-teal-600 shrink-0" />
-                      )}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
+            </div>
           </div>
         </div>
 
@@ -234,7 +167,6 @@ export function Header({ onOpenSearch, onOpenDrawer }) {
               type="button"
               onClick={() => {
                 setShowNotifMenu(!showNotifMenu);
-                setShowSchoolMenu(false);
                 setShowUserMenu(false);
               }}
               className="relative p-2 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
@@ -278,7 +210,6 @@ export function Header({ onOpenSearch, onOpenDrawer }) {
             <button
               onClick={() => {
                 setShowUserMenu(!showUserMenu);
-                setShowSchoolMenu(false);
                 setShowNotifMenu(false);
               }}
               className="flex items-center gap-2 p-1.5 rounded-2xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
